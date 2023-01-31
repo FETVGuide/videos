@@ -1,0 +1,33 @@
+name: videos-1-1-20
+on:
+  schedule:
+    - cron: "* */2 * * *"
+  workflow_dispatch:
+jobs:
+  workflow_dispatch:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checking out repository code
+        uses: actions/checkout@v3
+        with:
+          ref: videos
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configuring git
+        run: |
+          git config --global user.email "fetvguide@gmail.com"
+          git config --global user.name "FETVGUIDE"
+      - name: Install youtube-dl
+        run: |
+          sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+          sudo chmod a+rx /usr/local/bin/yt-dlp
+      - name: Install videos.sh
+        run: |
+          curl -L https://raw.githubusercontent.com/FETVGuide/livestreams/main/bin/videos.sh -o /usr/local/bin/videos.sh
+          sudo chmod a+rx /usr/local/bin/videos.sh
+      - name: VIDEOS 1 1 20
+        run: |
+          /usr/local/bin/videos.sh 1 1 20
+          git add -A
+          git commit -m "update videos 1 1 20"
+          git pull --rebase
+          git push || true
