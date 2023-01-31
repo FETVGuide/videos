@@ -22,7 +22,7 @@ jobs:
           sudo chmod a+rx /usr/local/bin/yt-dlp
       - name: Install videos.sh
         run: |
-          curl -L https://raw.githubusercontent.com/FETVGuide/livestreams/main/bin/videos.sh -o /usr/local/bin/videos.sh
+          curl -L https://raw.githubusercontent.com/FETVGuide/videos/main/bin/videos.sh -o /usr/local/bin/videos.sh
           sudo chmod a+rx /usr/local/bin/videos.sh
       - name: VIDEOS b 3 10
         run: |
