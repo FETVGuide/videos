@@ -1,7 +1,7 @@
 name: videos-2-1-20
 on:
   schedule:
-    - cron: "* */2 * * *"
+    - cron: "* */4 * * *"
   workflow_dispatch:
 jobs:
   workflow_dispatch:
