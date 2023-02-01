@@ -9,6 +9,7 @@ if [ "$INDEX" == "" ]; then
   echo "No index specified: 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z"
   exit 1
 fi
+date '+%Y-%m-%d %H:%M:%S' > .start-$INDEX-$START-$STOP.txt
 curl -L https://raw.githubusercontent.com/FETVGuide/livestreams/main/$INDEX.txt -o /tmp/$INDEX.txt
 IFS=$(echo -en "\n\b")
 for entry in $(sed -n "$START,$STOP"p /tmp/$INDEX.txt); do
@@ -24,5 +25,5 @@ EOL
     done 
   fi
 done
-
+date '+%Y-%m-%d %H:%M:%S' > .finish-$INDEX-$START-$STOP.txt
 rm -f ./404:.json ./.json
