@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -L https://raw.githubusercontent.com/FETVGuide/videos/main/bin/install-phantomjs.sh -o /tmp/install-phantomjs.sh
           sudo chmod a+rx /tmp/install-phantomjs.sh
-          /tmp/install-phantomjs.sh
+          sudo /tmp/install-phantomjs.sh
       - name: Install videos.sh
         run: |
           curl -L https://raw.githubusercontent.com/FETVGuide/videos/main/bin/videos.sh -o /usr/local/bin/videos.sh
