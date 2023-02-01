@@ -32,7 +32,7 @@ jobs:
                 cid="$(echo "$entry" | awk '{print $2}')"
                 if [ -f "./$cid.txt" ]; then
                   COUNT2=$(wc -l ./$cid.txt | awk '{print $1}')
-                  DATA2="{\"username\": \"$name\", \"channelId\": \"$cid\" \"count\": \"$COUNT2\"}"
+                  DATA2="{\"username\": \"$name\", \"channelId\": \"$cid\", \"count\": \"$COUNT2\"}"
                   OUT2="$OUT2$DATA2, "
                   echo $COUNT2
                   TOTAL2=$(($COUNT2 + $TOTAL2));
