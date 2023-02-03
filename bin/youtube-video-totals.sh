@@ -13,7 +13,7 @@ for i in 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z
       name="$(echo "$entry" | awk '{print $1}')"
       cid="$(echo "$entry" | awk '{print $2}')"
       if [ -f "./$cid.txt" ]; then
-        COUNT2=$(wc -l ./$cid.txt | awk '{print $1}')
+        COUNT2=$(egrep -cv '#|^$' ./$cid.txt | awk '{print $1}')
         DATA2="{\"username\": \"$name\", \"channelId\": \"$cid\", \"count\": \"$COUNT2\"}"
         OUT2="$OUT2$DATA2, "
         echo $COUNT2
